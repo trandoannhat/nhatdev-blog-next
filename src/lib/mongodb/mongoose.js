@@ -5,18 +5,18 @@ let initialized = false;
 export const connect = async () => {
   mongoose.set('strictQuery', true);
   if (initialized) {
-    console.log('Already connected to MongoDB');
+    console.log('Kết nối với MongoDB thành công.');
     return;
   }
   try {
     await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: 'next-blog',
+      dbName: 'nhatdev-blog',
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('Connected to MongoDB');
+    console.log('Kết nối MongoDB thành công');
     initialized = true;
   } catch (error) {
-    console.log('Error connecting to MongoDB:', error);
+    console.log('Lỗi kết nối tới MongoDB:', error);
   }
 };
